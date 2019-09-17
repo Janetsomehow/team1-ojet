@@ -1,18 +1,30 @@
-/**
- * @license
- * Copyright (c) 2014, 2019, Oracle and/or its affiliates.
- * The Universal Permissive License (UPL), Version 1.0
- */
-/*
- * Your about ViewModel code goes here
- */
-define([],
- function() {
+define(['ojs/ojcore',
+        'knockout',
+        'jquery',
+        'ojs/ojbootstrap',
+        'ojs/ojresponsiveutils',
+        'ojs/ojresponsiveknockoututils',
+        'ojs/ojknockout', 'ojs/ojlabel', 'ojs/ojinputtext', 'ojs/ojformlayout', 'ojs/ojbutton'],
+ function(oj, ko, $, Bootstrap, responsiveUtils, responsiveKnockoutUtils) {
 
-    function AboutViewModel() {
+    function SigninViewModel() {
       var self = this;
       // Below are a set of the ViewModel methods invoked by the oj-module component.
       // Please reference the oj-module jsDoc for additional information.
+      self.isSmall =responsiveKnockoutUtils.createMediaQueryObservable(
+                    responsiveUtils.getFrameworkQuery(responsiveUtils.FRAMEWORK_QUERY_KEY.SM_ONLY));
+
+      // For small screens: labels on top
+      // For medium or bigger: labels inline
+      self.labelEdge = ko.computed(function() {
+                                    return self.isSmall() ? "top" : "start";
+                                  }, self);
+      self.clickedButton = ko.observable("(None clicked yet)");
+      self.buttonClick = function(event){
+                            self.clickedButton(event.currentTarget.id);
+                            return true;
+                          }.bind(self);
+      self.value = ko.observable("What");
 
       /**
        * Optional ViewModel method invoked after the View is inserted into the
@@ -47,6 +59,6 @@ define([],
      * each time the view is displayed.  Return an instance of the ViewModel if
      * only one instance of the ViewModel is needed.
      */
-    return new AboutViewModel();
+    return new SigninViewModel();
   }
 );
