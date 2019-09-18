@@ -7,7 +7,7 @@ define(['ojs/ojcore',
         'ojs/ojknockout', 'ojs/ojlabel', 'ojs/ojinputtext', 'ojs/ojformlayout', 'ojs/ojbutton'],
  function(oj, ko, $, Bootstrap, responsiveUtils, responsiveKnockoutUtils) {
 
-    function LoginViewModel() {
+    function SignupViewModel() {
       var self = this;
       // Below are a set of the ViewModel methods invoked by the oj-module component.
       // Please reference the oj-module jsDoc for additional information.
@@ -59,6 +59,6 @@ define(['ojs/ojcore',
      * each time the view is displayed.  Return an instance of the ViewModel if
      * only one instance of the ViewModel is needed.
      */
-    return new LoginViewModel();
+    return new SignupViewModel();
   }
 );
