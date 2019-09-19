@@ -5,3 +5,43 @@
     Description:
         This is where any of your application specific styles should be included
 */
+.registerMain {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid;
+    border-radius: 5%;
+    padding: 2em;
+    width: 50%;
+    margin: 2em auto;
+}
+
+.registerMain > h1 {
+    text-align: center;
+    margin-top: 0.3em;
+    margin-bottom: 0.7em;
+}
+
+.oj-label {
+    color: #000;
+    font-weight: 600;
+    margin-bottom: 0.8em;
+}
+
+#form-container {
+    text-align: center;
+    padding-bottom: 2em;
+}
+
+#register > button {
+    background-color: #23A23F;
+    color: #FFF;
+    font-weight: 700;
+    font-size: 1.5em;
+    padding: 1em 0.5em 2em 0.5em;
+    border-radius: 15px;
+    margin-top: 1em;
+}
+
+.user {
+    margin-top: 5em;
+}
