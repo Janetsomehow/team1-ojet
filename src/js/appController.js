@@ -28,7 +28,7 @@ define(['knockout', 'ojs/ojmodule-element-utils', 'ojs/ojknockouttemplateutils',
        // Router setup
        self.router = Router.rootInstance;
        self.router.configure({
-         'signin': { label: 'Signin', isDefault: true},
+         'register': { label: 'Register', isDefault: true},
          'login': { label: 'Login'},
          'dashboard': {label: 'Dashboard'}
        });
@@ -55,7 +55,7 @@ define(['knockout', 'ojs/ojmodule-element-utils', 'ojs/ojknockouttemplateutils',
 
       // Navigation setup
       var navData = [
-      {name: 'Register', id: 'signin'},
+      {name: 'Register', id: 'register'},
       {name: 'Login', id: 'login'},
       {name: 'Dashboard', id: 'dashboard',
        iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-chart-icon-24'},

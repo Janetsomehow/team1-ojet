@@ -1,0 +1,19 @@
+<div class="registerMain">
+  <h1>Register</h1>
+  <div id="form-container">
+    <oj-form-layout id="ofl1" label-edge="{{labelEdge}}" max-columns="{{columns}}">
+      <oj-input-text id="fullname" value="{{fullname}}" label-hint="FULL NAME" placeholder="Enter your full name"></oj-input-text>
+      <oj-input-text id="email" value="{{email}}" type="email" label-hint="EMAIL" placeholder="Enter your email"></oj-input-text>
+      <oj-input-text id="location" value="{{location}}" label-hint="LOCATION" placeholder="Enter location"></oj-input-text>
+      <oj-input-password id="password" value="{{password}}" label-hint="PASSWORD" placeholder="Enter your password"></oj-input-password>
+      <oj-input-text id="username" value="{{username}}" label-hint="USERNAME" placeholder="Enter your username"></oj-input-text>
+      <oj-input-text id="phone" value="{{phone}}" label-hint="PHONE NUMBER" placeholder="Enter your phone number"></oj-input-text>
+      <oj-input-text id="stack" value="{{stack}}" label-hint="STACK" placeholder="E.g. MongoDB, ExpressJS, ReactJS and NodeJS"></oj-input-text>
+      <oj-input-password id="verifyPassword" value="{{verifyPassword}}" label-hint="CONFIRM PASSWORD" placeholder="Enter your password"></oj-input-password>
+    </oj-form-layout>
+    <oj-button id='register' on-oj-action='[[buttonClick]]'>REGISTER</oj-button>
+    <div class="user">
+      <a data-bind="click: navigateToLogin">Already have an account? Login</a>
+    </div>
+  </div>
+</div>
