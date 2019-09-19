@@ -7,24 +7,48 @@ define(['ojs/ojcore',
         'ojs/ojknockout', 'ojs/ojlabel', 'ojs/ojinputtext', 'ojs/ojformlayout', 'ojs/ojbutton'],
  function(oj, ko, $, Bootstrap, responsiveUtils, responsiveKnockoutUtils) {
 
-    function SignupViewModel() {
+    function RegisterViewModel() {
       var self = this;
       // Below are a set of the ViewModel methods invoked by the oj-module component.
       // Please reference the oj-module jsDoc for additional information.
       self.isSmall =responsiveKnockoutUtils.createMediaQueryObservable(
-                    responsiveUtils.getFrameworkQuery(responsiveUtils.FRAMEWORK_QUERY_KEY.SM_ONLY));
+        responsiveUtils.getFrameworkQuery(responsiveUtils.FRAMEWORK_QUERY_KEY.SM_ONLY));
+      self.isLargeOrUp = responsiveKnockoutUtils.createMediaQueryObservable(
+        responsiveUtils.getFrameworkQuery(responsiveUtils.FRAMEWORK_QUERY_KEY.LG_UP));
 
-      // For small screens: labels on top
-      // For medium or bigger: labels inline
-      self.labelEdge = ko.computed(function() {
-                                    return self.isSmall() ? "top" : "start";
-                                  }, self);
+      // For small screens: 1 column and labels on top
+      // For medium screens: 2 columns and labels on top
+      // For large screens or bigger: 2 columns and labels inline
+      this.columns = ko.pureComputed(function() {
+        return this.isSmall() ? 1 : 2;
+      }, this);
+      this.labelEdge = ko.pureComputed(function() {
+        return this.isLargeOrUp() ? "top" : "top";
+      }, this);
+
       self.clickedButton = ko.observable("(None clicked yet)");
       self.buttonClick = function(event){
-                            self.clickedButton(event.currentTarget.id);
+                            self.clickedButton(self.fullname());
                             return true;
                           }.bind(self);
       self.value = ko.observable("What");
+
+      self.fullname = ko.observable("");
+      self.email = ko.observable("");
+      self.username = ko.observable("");
+      self.phone = ko.observable("");
+      self.password = ko.observable("");
+      self.location = ko.observable("");
+      self.stack = ko.observableArray();
+      self.verifyPassword = ko.observable();
+      self.submitInfo = function() {
+        console.log("Button clicked..")
+
+      };
+
+      self.navigateToLogin = function() {
+        oj.Router.rootInstance.go('login')
+      }
 
       /**
        * Optional ViewModel method invoked after the View is inserted into the
@@ -59,6 +83,6 @@ define(['ojs/ojcore',
      * each time the view is displayed.  Return an instance of the ViewModel if
      * only one instance of the ViewModel is needed.
      */
-    return new SignupViewModel();
+    return new RegisterViewModel();
   }
 );
