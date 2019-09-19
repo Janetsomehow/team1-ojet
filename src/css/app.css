@@ -15,6 +15,9 @@
     margin: 2em auto;
 }
 
+    
+
+
 .registerMain > h1 {
     text-align: center;
     margin-top: 0.3em;
@@ -30,6 +33,7 @@
 #form-container {
     text-align: center;
     padding-bottom: 2em;
+    
 }
 
 #register > button {
